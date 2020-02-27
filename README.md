@@ -1,4 +1,4 @@
-# supermall
+# web-water
 
 ## Project setup
 ```
