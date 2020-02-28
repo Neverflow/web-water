@@ -2,38 +2,50 @@
 	<el-row type="flex" justify="center" align="middle">
 		<el-col :span="16">
 			<el-form :model="ruleForm">
-				<h3>登录系统</h3>
+				<h3>注册账号</h3>
 				<el-form-item prop="username">
 					<el-input v-model="ruleForm.username" placeholder="请输入账号"></el-input>
 				</el-form-item>
 				<el-form-item prop="password">
 					<el-input type="password" v-model="ruleForm.password" placeholder="请输入密码"></el-input>
 				</el-form-item>
-				<el-button type="primary" @click="onSubmit()">登陆</el-button>
-				<el-button @click="toRegister">注册</el-button>
+				<el-form-item prop="suerpassword">
+					<el-input type="password" v-model="ruleForm.surepassword" placeholder="请确认密码"></el-input>
+				</el-form-item>
+				<el-button @click="handleRegister">注册</el-button>
 			</el-form>
 		</el-col>
 	</el-row>
 </template>
 
 <script>
+import Vue from "vue";
+import { MessageBox } from "element-ui";
 export default {
-	name: "login",
+	name: "register",
 	data() {
 		return {
 			ruleForm: {
 				username: "",
-				password: ""
+				password: "",
+				surepassword: ""
 			}
 		};
 	},
 	methods: {
-		onSubmit() {
-			console.log("submit");
-			this.$router.push("/home");
-		},
-		toRegister() {
-			this.$router.push("/mainuser/register");
+		handleRegister() {
+			new Promise((resolve, reject) => {
+				setTimeout(() => {
+					resolve("注册成功");
+				}, 0);
+			}).then(res => {
+				MessageBox.alert(res, "注册", {
+					confirmButtonText: "返回登录界面",
+					callback: () => {
+						this.$router.push("/mainuser/login");
+					}
+				});
+			});
 		}
 	}
 };

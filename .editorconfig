@@ -1,0 +1,16 @@
+root = true  //项目里读editorcongig文件时，读到此文件即可，不用继续往上搜索
+
+[*]  //规范指定:全部文件
+charset = utf-8  //文档的字符编码：使用UTF-8 - Unicode 字符编码；常见的字符编码有两种：1.UTF-8 - Unicode 字符编码；2.ISO-8859-1 - 拉丁字母表的字符编码。
+
+//使用Unix-style 换行符，并且每个文件以换行结束
+end_of_line = lf //跟系统有关。win用cr lf，linux/unix用lf，mac用cr。
+insert_final_newline = true   //保存文件时，在最后一行后加上一行空行
+
+
+//2个空格缩进
+indent_style = space //tab类型：空格（不使用制表符）
+indent_size = 4  //tab键长度是两个空格
+
+
+trim_trailing_whitespace = true  //去掉每行代码最后多余的空格

@@ -8,5 +8,12 @@ module.exports = {
                 'network': '@/network',
             }
         }
+    },
+
+    pluginOptions: {
+      'style-resources-loader': {
+        preProcessor: 'less',
+        patterns: []
+      }
     }
 }
