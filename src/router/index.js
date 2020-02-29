@@ -66,5 +66,20 @@ const router = new VueRouter({
 
 
 // 导航守卫
+router.beforeEach((to, from, next) => {
+    if (!to.meta.noAuth) { // 判断该路由是否需要登录权限
+        if (sessionStorage.getItem('loginstatus')) { // 判断本地是否存在access_token
+            next()
+        } else {
+            // 未登录,跳转到登陆页面，并且带上 将要去的地址，方便登陆后跳转。
+            next({
+                path: '/',
+                query: { referrer: to.fullPath }
+            })
+        }
+    } else {
+        next()
+    }
+})
 
 export default router

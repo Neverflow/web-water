@@ -41,6 +41,7 @@ export default {
 			}).then(res => {
 				MessageBox.alert(res, "注册", {
 					confirmButtonText: "返回登录界面",
+					type: "success",
 					callback: () => {
 						this.$router.push("/mainuser/login");
 					}

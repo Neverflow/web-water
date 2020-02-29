@@ -30,7 +30,21 @@ export default {
 	methods: {
 		onSubmit() {
 			console.log("submit");
-			this.$router.push("/home");
+
+			/**
+			 *@todo 获取登录是否成功
+			 */
+			return new Promise((resolve, reject) => {
+				// 此处异步操作需进行修改
+				setTimeout(() => {
+					resolve("login success");
+				}, 500);
+			}).then(res => {
+				console.log(res);
+				let loginstatus = true;
+				this.$store.commit("setRouting", loginstatus);
+				this.$router.push("/home");
+			});
 		},
 		toRegister() {
 			this.$router.push("/mainuser/register");
