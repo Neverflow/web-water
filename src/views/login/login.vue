@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { showLoading, hideLoading } from "@/common/loading";
 export default {
 	name: "login",
 	data() {
@@ -36,11 +37,13 @@ export default {
 			 */
 			return new Promise((resolve, reject) => {
 				// 此处异步操作需进行修改
+				showLoading();
 				setTimeout(() => {
 					resolve("login success");
-				}, 500);
+				}, 1000);
 			}).then(res => {
 				console.log(res);
+				hideLoading();
 				let loginstatus = true;
 				this.$store.commit("setRouting", loginstatus);
 				this.$router.push("/home");
