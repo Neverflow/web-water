@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { showLoading, hideLoading } from "@/common/loading";
+import { showLoading, hideLoading } from "@/common/loading/loading";
 export default {
 	name: "login",
 	data() {

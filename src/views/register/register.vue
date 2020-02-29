@@ -21,6 +21,7 @@
 <script>
 import Vue from "vue";
 import { MessageBox } from "element-ui";
+import { showLoading, hideLoading } from "@/common/loading/loading";
 export default {
 	name: "register",
 	data() {
@@ -35,10 +36,13 @@ export default {
 	methods: {
 		handleRegister() {
 			new Promise((resolve, reject) => {
+				showLoading()
+				/* @todo */
 				setTimeout(() => {
 					resolve("注册成功");
-				}, 0);
+				}, 1000);
 			}).then(res => {
+				hideLoading()
 				MessageBox.alert(res, "注册", {
 					confirmButtonText: "返回登录界面",
 					type: "success",
