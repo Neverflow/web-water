@@ -9,55 +9,65 @@ const Home = () => import('@/views/home/home.vue')
 const nowADT = () => import('@/views/nows/nowADT/nowADT.vue')
 const nowTemp = () => import('@/views/nows/nowTemp/nowTemp.vue')
 const nowPH = () => import('@/views/nows/nowPH/nowPH.vue')
+const notFound = () => import('@/views/404/error.vue')
 //安装插件
 Vue.use(VueRouter)
 
-const routes = [{
-    path: '/',
-    redirect: '/mainuser'
-}, {
-    path: '/mainuser',
-    name: 'MainUser',
-    component: MainUser,
-    redirect: '/mainuser/login',
-    children: [
-        {
-            path: 'login',
-            name: 'Login',
-            component: Login,
-            // 不需要登录的页面添加meta属性
-            meta: { noAuth: true }
-        },
-        {
-            path: 'register',
-            name: 'register',
-            component: Register,
-            meta: { noAuth: true }
-        },
-    ]
-}, {
-    path: '/home',
-    name: 'Home',
-    component: Home,
-    redirect: '/home/nowph',
-    children: [
-        {
-            path: 'nowadt',
-            name: 'nowADT',
-            component: nowADT
-        },
-        {
-            path: 'nowtemp',
-            name: 'nowTemp',
-            component: nowTemp
-        },
-        {
-            path: 'nowph',
-            name: 'nowPH',
-            component: nowPH
-        },
-    ]
-}]
+const routes = [
+    {
+        path: '/',
+        redirect: '/mainuser'
+    },
+    {
+        path: '/mainuser',
+        name: 'MainUser',
+        component: MainUser,
+        redirect: '/mainuser/login',
+        children: [
+            {
+                path: 'login',
+                name: 'Login',
+                component: Login,
+                // 不需要登录的页面添加meta属性
+                meta: { noAuth: true }
+            },
+            {
+                path: 'register',
+                name: 'register',
+                component: Register,
+                meta: { noAuth: true }
+            },
+        ]
+    },
+    {
+        path: '/home',
+        name: 'Home',
+        component: Home,
+        redirect: '/home/nowph',
+        children: [
+            {
+                path: 'nowadt',
+                name: 'nowADT',
+                component: nowADT
+            },
+            {
+                path: 'nowtemp',
+                name: 'nowTemp',
+                component: nowTemp
+            },
+            {
+                path: 'nowph',
+                name: 'nowPH',
+                component: nowPH
+            },
+        ]
+    },
+    {
+        path: '*',
+        name: 'error',
+        component: notFound,
+        meta: { noAuth: true }
+    }]
 
 const router = new VueRouter({
     routes,
