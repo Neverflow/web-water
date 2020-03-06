@@ -19,8 +19,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { MessageBox } from "element-ui";
 import { showLoading, hideLoading } from "@/common/loading/loading";
 export default {
 	name: "register",
@@ -43,7 +41,7 @@ export default {
 				}, 1000);
 			}).then(res => {
 				hideLoading()
-				MessageBox.alert(res, "注册", {
+				this.$alert(res, "注册", {
 					confirmButtonText: "返回登录界面",
 					type: "success",
 					callback: () => {
