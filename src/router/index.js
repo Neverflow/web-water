@@ -6,7 +6,7 @@ const MainUser = () => import('@/views/mainUser/mainUser.vue')
 const Login = () => import('@/views/login/login.vue')
 const Register = () => import('@/views/register/register.vue')
 const Home = () => import('@/views/home/home.vue')
-const nowADT = () => import('@/views/nows/nowADT/nowADT.vue')
+const nowTDS = () => import('@/views/nows/nowTDS/nowTDS.vue')
 const nowTemp = () => import('@/views/nows/nowTemp/nowTemp.vue')
 const nowPH = () => import('@/views/nows/nowPH/nowPH.vue')
 const notFound = () => import('@/views/404/error.vue')
@@ -46,9 +46,9 @@ const routes = [
         redirect: '/home/nowph',
         children: [
             {
-                path: 'nowadt',
-                name: 'nowADT',
-                component: nowADT
+                path: 'nowtds',
+                name: 'nowTDS',
+                component: nowTDS
             },
             {
                 path: 'nowtemp',
@@ -81,7 +81,7 @@ router.beforeEach((to, from, next) => {
         if (sessionStorage.getItem('loginstatus')) { // 判断本地是否存在access_token
             next()
         } else {
-            // 未登录,跳转到登陆页面，并且带上 将要去的地址，方便登陆后跳转。
+            // 未登录,跳转到登陆页面，并且带上 将要去的地址方便登陆后跳转。
             next({
                 path: '/',
                 query: { referrer: to.fullPath }
