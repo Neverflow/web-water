@@ -4,7 +4,6 @@ import VueRouter from 'vue-router'
 // 路由懒加载
 const MainUser = () => import('@/views/mainUser/mainUser.vue')
 const Login = () => import('@/views/login/login.vue')
-const Register = () => import('@/views/register/register.vue')
 const Home = () => import('@/views/home/home.vue')
 const nowADT = () => import('@/views/nows/nowADT/nowADT.vue')
 const nowTemp = () => import('@/views/nows/nowTemp/nowTemp.vue')
@@ -13,8 +12,7 @@ const notFound = () => import('@/views/404/error.vue')
 //安装插件
 Vue.use(VueRouter)
 
-const routes = [
-    {
+const routes = [{
         path: '/',
         redirect: '/mainuser'
     },
@@ -23,29 +21,22 @@ const routes = [
         name: 'MainUser',
         component: MainUser,
         redirect: '/mainuser/login',
-        children: [
-            {
-                path: 'login',
-                name: 'Login',
-                component: Login,
-                // 不需要登录的页面添加meta属性
-                meta: { noAuth: true }
-            },
-            {
-                path: 'register',
-                name: 'register',
-                component: Register,
-                meta: { noAuth: true }
-            },
-        ]
+        children: [{
+            path: 'login',
+            name: 'Login',
+            component: Login,
+            // 不需要登录的页面添加meta属性
+            meta: {
+                noAuth: true
+            }
+        }]
     },
     {
         path: '/home',
         name: 'Home',
         component: Home,
         redirect: '/home/nowph',
-        children: [
-            {
+        children: [{
                 path: 'nowadt',
                 name: 'nowADT',
                 component: nowADT
@@ -66,8 +57,11 @@ const routes = [
         path: '*',
         name: 'error',
         component: notFound,
-        meta: { noAuth: true }
-    }]
+        meta: {
+            noAuth: true
+        }
+    }
+]
 
 const router = new VueRouter({
     routes,
@@ -84,7 +78,9 @@ router.beforeEach((to, from, next) => {
             // 未登录,跳转到登陆页面，并且带上 将要去的地址，方便登陆后跳转。
             next({
                 path: '/',
-                query: { referrer: to.fullPath }
+                query: {
+                    referrer: to.fullPath
+                }
             })
         }
     } else {

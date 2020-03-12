@@ -1,8 +1,10 @@
 <template>
 	<div class="error-container">
-		<img src="@/assets/img/very_sorry.png" alt="error" />
+		<img src="@/assets/img/very_sorry.png"
+			 alt="error" />
 		<br />
-		<el-button type="primary" @click="goBack()">返回上一个页面</el-button>
+		<el-button type="primary"
+				   @click="goBack()">返回上一个页面</el-button>
 	</div>
 </template>
 
@@ -10,14 +12,14 @@
 import { Button } from "element-ui";
 export default {
 	name: "404",
-	data() {
+	data () {
 		return {};
 	},
 	components: {
 		Button
 	},
 	methods: {
-		goBack() {
+		goBack () {
 			this.$router.go(-1);
 		}
 	}

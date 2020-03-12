@@ -1,19 +1,22 @@
 module.exports = {
-    configureWebpack: {
-        resolve: {
-            alias: {
-                'assets': '@/assets',
-                'common': '@/common',
-                'components': '@/components',
-                'network': '@/network',
-            }
-        }
-    },
+	configureWebpack: {
+		resolve: {
+			alias: {
+				'assets': '@/assets',
+				'common': '@/common',
+				'components': '@/components',
+				'network': '@/network',
+			}
+		}
+	},
 
-    pluginOptions: {
-      'style-resources-loader': {
-        preProcessor: 'less',
-        patterns: []
-      }
-    }
+	pluginOptions: {
+		'style-resources-loader': {
+			preProcessor: 'less',
+			patterns: []
+		}
+	},
+	devServer: {
+		open: true
+	}
 }

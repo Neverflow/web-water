@@ -9,7 +9,7 @@ insert_final_newline = true   //保存文件时，在最后一行后加上一行
 
 
 //2个空格缩进
-indent_style = space //tab类型：空格（不使用制表符）
+indent_style = tab //tab类型：空格（不使用制表符）
 indent_size = 4  //tab键长度是两个空格
 
 
