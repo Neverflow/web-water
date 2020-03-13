@@ -12,7 +12,9 @@
       </el-aside>
       <div class="content">
         <!-- 标题栏 -->
-        <div class="module-title"></div>
+        <div class="module-title">
+          <span>{{routeTitle}}</span>
+        </div>
         <!-- 内容 -->
         <el-main>
 
@@ -42,6 +44,11 @@ export default {
   components: {
     Header,
     Aside
+  },
+  computed: {
+    routeTitle() {
+      return this.$route.meta.title;
+    }
   }
 };
 </script>
@@ -67,12 +74,22 @@ export default {
         height: 50px;
         width: 100%;
         background: #34495e;
+        border-bottom: 3px solid rgb(238, 238, 238);
+        span {
+          display: inline-block;
+          line-height: 50px;
+          height: 50px;
+          border-bottom: 3px solid #0088cc;
+          font-size: 18px;
+          color: white;
+          padding: 0 20px;
+        }
       }
       .el-main {
         padding: 40px;
         width: 100%;
         height: auto;
-        background: rgba(241, 240, 240, 0.973);
+        background: rgba(243, 240, 240, 0.897);
       }
     }
 

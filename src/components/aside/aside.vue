@@ -4,9 +4,15 @@
     unique-opened
     router
   >
+    <div class="logo-container">
+      <img
+        src="@/assets/img/logo.png"
+        alt="logo"
+      >
+    </div>
     <el-submenu index="1">
       <template slot="title">
-        <i class="el-icon-message"></i>当前数据
+        <i class="el-icon-s-platform"></i>当前数据
       </template>
       <el-menu-item-group>
         <el-menu-item index="/home/nowph">PH值</el-menu-item>
@@ -51,8 +57,20 @@ export default {
   background: #34495e;
   color: #abb4be;
   border: 0;
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
   & /deep/ .el-submenu__title {
     color: #abb4be;
+    user-select: none;
     &:hover {
       background: #21262d;
     }
@@ -63,6 +81,7 @@ export default {
       background: #34495e;
       & /deep/ .el-menu-item {
         color: #abb4be;
+        user-select: none;
         &:hover {
           background: #21262d;
         }

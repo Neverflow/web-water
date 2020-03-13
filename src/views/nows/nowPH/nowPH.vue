@@ -3,10 +3,14 @@
     <div>PH值实时数据</div>
     <el-row :gutter="40">
       <el-col :md="12">
-        Echarts1
+        <div class="chart-container">
+          Echarts1
+        </div>
       </el-col>
       <el-col :md="12">
-        Echarts1
+        <div class="chart-container">
+          Echarts1
+        </div>
       </el-col>
     </el-row>
   </el-row>
@@ -25,7 +29,11 @@ export default {
 #now_ph {
   overflow: hidden;
   .el-col {
-    background: white;
+    height: 380px;
+    .chart-container {
+      background: white;
+      height: 370px;
+    }
   }
 }
 </style>

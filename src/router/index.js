@@ -39,17 +39,26 @@ const routes = [{
         children: [{
                 path: 'nowtds',
                 name: 'nowTDS',
-                component: nowTDS
+                component: nowTDS,
+                meta: {
+                    title: '当前TDS数值'
+                }
             },
             {
                 path: 'nowtemp',
                 name: 'nowTemp',
-                component: nowTemp
+                component: nowTemp,
+                meta: {
+                    title: '当前温度数值'
+                }
             },
             {
                 path: 'nowph',
                 name: 'nowPH',
-                component: nowPH
+                component: nowPH,
+                meta: {
+                    title: '当前PH数值'
+                }
             },
         ]
     },
