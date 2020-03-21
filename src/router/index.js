@@ -13,68 +13,67 @@ const notFound = () => import('@/views/404/error.vue')
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
-        redirect: '/mainuser'
-    },
-    {
-        path: '/mainuser',
-        name: 'MainUser',
-        component: MainUser,
-        redirect: '/mainuser/login',
-        children: [{
-            path: 'login',
-            name: 'Login',
-            component: Login,
-            // 不需要登录的页面添加meta属性
-            meta: {
-                noAuth: true
-            }
-        }]
-    },
-    {
-        path: '/home',
-        name: 'Home',
-        component: Home,
-        redirect: '/home/nowph',
-        children: [{
-                path: 'nowtds',
-                name: 'nowTDS',
-                component: nowTDS,
-                meta: {
-                    title: '当前TDS数值'
-                }
-            },
-            {
-                path: 'nowtemp',
-                name: 'nowTemp',
-                component: nowTemp,
-                meta: {
-                    title: '当前温度数值'
-                }
-            },
-            {
-                path: 'nowph',
-                name: 'nowPH',
-                component: nowPH,
-                meta: {
-                    title: '当前PH数值'
-                }
-            },
-        ]
-    },
-    {
-        path: '*',
-        name: 'error',
-        component: notFound,
+    path: '/',
+    redirect: '/mainuser'
+},
+{
+    path: '/mainuser',
+    name: 'MainUser',
+    component: MainUser,
+    redirect: '/mainuser/login',
+    children: [{
+        path: 'login',
+        name: 'Login',
+        component: Login,
+        // 不需要登录的页面添加meta属性
         meta: {
             noAuth: true
         }
+    }]
+},
+{
+    path: '/home',
+    name: 'Home',
+    component: Home,
+    redirect: '/home/nowph',
+    children: [{
+        path: 'nowtds',
+        name: 'nowTDS',
+        component: nowTDS,
+        meta: {
+            title: '当前TDS数值'
+        }
+    },
+    {
+        path: 'nowtemp',
+        name: 'nowTemp',
+        component: nowTemp,
+        meta: {
+            title: '当前温度数值'
+        }
+    },
+    {
+        path: 'nowph',
+        name: 'nowPH',
+        component: nowPH,
+        meta: {
+            title: '当前PH数值'
+        }
+    },
+    ]
+},
+{
+    path: '*',
+    name: 'error',
+    component: notFound,
+    meta: {
+        noAuth: true
     }
+}
 ]
 
 const router = new VueRouter({
-    routes,
-    mode: 'history'
+    routes
 })
 
 
