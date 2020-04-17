@@ -8,7 +8,12 @@ const Home = () => import('@/views/home/home.vue')
 const nowTDS = () => import('@/views/nows/nowTDS/nowTDS.vue')
 const nowTemp = () => import('@/views/nows/nowTemp/nowTemp.vue')
 const nowPH = () => import('@/views/nows/nowPH/nowPH.vue')
+const allPH = () => import('@/views/all/allph/allph.vue')
+const allTDS = () => import('@/views/all/alltds/alltds.vue')
+const allTemp = () => import('@/views/all/alltemp/alltemp.vue')
+
 const notFound = () => import('@/views/404/error.vue')
+
 //安装插件
 Vue.use(VueRouter)
 
@@ -60,6 +65,30 @@ const routes = [{
             title: '当前PH数值'
         }
     },
+    {
+        path: 'allph',
+        name: 'allPH',
+        component: allPH,
+        meta: {
+            title: 'PH数据历史'
+        }
+    },
+    {
+        path: 'alltds',
+        name: 'allTDS',
+        component: allTDS,
+        meta: {
+            title: 'TDS数据历史'
+        }
+    },
+    {
+        path: 'alltemp',
+        name: 'allTemp',
+        component: allTemp,
+        meta: {
+            title: '温度数据历史'
+        }
+    },
     ]
 },
 {
@@ -93,6 +122,14 @@ router.beforeEach((to, from, next) => {
         }
     } else {
         next()
+    }
+
+    if (to.fullPath == '/mainuser/login') {
+        if (sessionStorage.getItem('loginstatus')) { // 判断本地是否存在access_token
+            next({
+                path: '/home'
+            })
+        }
     }
 })
 

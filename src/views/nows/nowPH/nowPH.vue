@@ -11,6 +11,7 @@
                 style="width: 100%"
                 v-loading="loading"
                 element-loading-text="玩儿命加载中"
+                empty-text="今日暂无数据"
             >
                 <el-table-column prop="ph" label="PH值"></el-table-column>
                 <el-table-column prop="date" label="数据采集时间"></el-table-column>

@@ -5,12 +5,16 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        loginstatus: sessionStorage.getItem('loginstatus') || false
+        loginstatus: sessionStorage.getItem('loginstatus') || false,
+        waterUser: {}
     },
     mutations: {
         setRouting(state, loginstatus) {
             state.loginstatus = loginstatus
             sessionStorage.setItem('loginstatus', loginstatus)
+        },
+        setUser(state, user) {
+            state.waterUser = user;
         }
     },
     actions: {

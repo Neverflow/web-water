@@ -51,6 +51,7 @@ export default {
                 if (res.data.code == 0) {
                     let loginstatus = true;
                     this.$store.commit("setRouting", loginstatus);
+                    this.$store.commit("setUser", res.data.data);
                     this.$router.push("/home");
                     this.$message({
                         message: "登陆成功，欢迎进入水质检测系统",
