@@ -7,7 +7,13 @@
                     <el-input v-model="ruleForm.username" placeholder="请输入账号"></el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                    <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码"></el-input>
+                    <el-input
+                        type="password"
+                        v-model="ruleForm.password"
+                        placeholder="请输入密码"
+                        :show-password="true"
+                        @keyup.enter.native="onSubmit"
+                    ></el-input>
                 </el-form-item>
                 <el-button
                     type="primary"
@@ -68,31 +74,13 @@ export default {
                 }
             } catch (error) {
                 console.log(error);
+                this.$alert("连接服务器异常", "登陆失败", {
+                    confirmButtonText: "确定"
+                });
             }
 
             this.loadingState = false;
             hideLoading();
-            /**
-             *@todo 获取登录是否成功
-             */
-            // return new Promise((resolve, reject) => {
-            //     // 此处异步操作需进行修改
-            // if (!this.loadingState) {
-            //     this.loadingState = true;
-            // }
-
-            // showLoading();
-            //     setTimeout(() => {
-            //         resolve("login success");
-            //     }, 1000);
-            // }).then(res => {
-            //     console.log(res);
-            //     this.loadingState = false;
-            //     hideLoading();
-            //     let loginstatus = true;
-            //     this.$store.commit("setRouting", loginstatus);
-            //     this.$router.push("/home");
-            // });
         }
     }
 };

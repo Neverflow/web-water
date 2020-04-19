@@ -53,14 +53,14 @@ export default {
             this.tableData.forEach((item, index) => {
                 datearr.push(this.$root.$options.filters.dateArrFmt(item.date));
             });
-            return datearr;
+            return datearr.reverse();
         },
         phArr() {
             let pharr = [];
             this.tableData.forEach((item, index) => {
                 pharr.push(item.ph);
             });
-            return pharr;
+            return pharr.reverse();
         }
     },
     methods: {
@@ -105,8 +105,8 @@ export default {
                     boundaryGap: false
                 },
                 yAxis: {
-                    min: 4,
-                    max: 9
+                    min: 0,
+                    max: 14
                 },
                 series: [
                     {

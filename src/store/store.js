@@ -6,7 +6,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         loginstatus: sessionStorage.getItem('loginstatus') || false,
-        waterUser: {}
+        waterUser: JSON.parse(sessionStorage.getItem('user')) || {}
     },
     mutations: {
         setRouting(state, loginstatus) {
@@ -15,6 +15,7 @@ const store = new Vuex.Store({
         },
         setUser(state, user) {
             state.waterUser = user;
+            sessionStorage.setItem('user', JSON.stringify(user));
         }
     },
     actions: {

@@ -53,14 +53,14 @@ export default {
             this.tableData.forEach((item, index) => {
                 datearr.push(this.$root.$options.filters.dateArrFmt(item.date));
             });
-            return datearr;
+            return datearr.reverse();
         },
         tdsArr() {
             let tdsarr = [];
             this.tableData.forEach((item, index) => {
                 tdsarr.push(item.tds);
             });
-            return tdsarr;
+            return tdsarr.reverse();
         }
     },
     methods: {
@@ -104,10 +104,7 @@ export default {
                     data: this.dateArr,
                     boundaryGap: false
                 },
-                yAxis: {
-                    min: 4,
-                    max: 9
-                },
+                yAxis: {},
                 series: [
                     {
                         name: "TDS值",

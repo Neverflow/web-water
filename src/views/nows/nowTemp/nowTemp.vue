@@ -75,14 +75,14 @@ export default {
             this.tableData.forEach((item, index) => {
                 datearr.push(this.$root.$options.filters.dateArrFmt(item.date));
             });
-            return datearr;
+            return datearr.reverse();
         },
         tempArr() {
             let temparr = [];
             this.tableData.forEach((item, index) => {
                 temparr.push(item.temp);
             });
-            return temparr;
+            return temparr.reverse();
         }
     },
     methods: {
@@ -131,10 +131,7 @@ export default {
                     data: this.dateArr,
                     boundaryGap: false
                 },
-                yAxis: {
-                    min: 4,
-                    max: 9
-                },
+                yAxis: {},
                 series: [
                     {
                         name: "温度",
