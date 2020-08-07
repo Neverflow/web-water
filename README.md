@@ -1,4 +1,4 @@
-# web-water(毕业设计)
+# web-water
 
 ## Project setup
 
